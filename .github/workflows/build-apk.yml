@@ -19,6 +19,7 @@ jobs:
           cache: true
       - name: Build APK
         run: |
+          mkdir -p build
           godot --headless --export-release "Android" build/terraria_polish.apk
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
