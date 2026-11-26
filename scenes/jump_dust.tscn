@@ -1,0 +1,70 @@
+[gd_scene load_steps=2 format=3 uid="//uid://jump_dust"]
+
+[ext_resource type="Script" path="res://scripts/globals.gd" id="1"]
+
+[sub_resource type="Shader" id="Shader_1"]
+shader_type = "particles"
+render_mode = "additive"
+
+uniform float lifetime : hint_range(0.1, 1.0) = 0.3;
+
+void start() {
+    VELOCITY = vec3(randf_range(-50.0, 50.0), randf_range(-20.0, 20.0), 0.0);
+    COLOR = vec4(0.6, 0.5, 0.4, 0.6);
+    SCALE = vec3(0.6);
+    CUSTOM = vec4(0.0);
+}
+
+void process() {
+    CUSTOM.x += DELTA;
+    VELOCITY.y += 100.0 * DELTA;
+    VELOCITY.x *= pow(0.9, DELTA * 60.0);
+    COLOR.a = 0.6 * (1.0 - smoothstep(0.0, lifetime, CUSTOM.x));
+    SCALE = vec3(lerp(0.6, 1.2, CUSTOM.x / lifetime));
+    
+    if (CUSTOM.x >= lifetime) {
+        KILL = true;
+    }
+}
+
+[resource]
+script = ExtResource("1")
+process_mode = 0
+particles_process_order = 0
+amount = 6
+lifetime = 0.3
+one_shot = true
+pre_process_time = 0.0
+explosiveness = 0.8
+randomness = 0.5
+fixed_fps = 0
+fract_delta = 0.0
+speed_scale = 1.0
+use_local_coords = false
+frame_rate = 0.0
+color_ramp = GradientRamp { colors = { 0: Color(0.6, 0.5, 0.4, 0.6), 1: Color(0.5, 0.4, 0.3, 0) } }
+scale = 1.0
+scale_curve = float_curve { points = { 0: 0.6, 1: 1.2 } }
+color = Color(1, 1, 1, 1)
+color_ramp_offset = 0.0
+particle_flags = 0
+emission_shape = 0
+emission_sphere_radius = 0.0
+emission_ring_inner_radius = 0.0
+emission_ring_axis = Vector3(0, 0, 1)
+emission_rect_extents = Vector2(10, 2)
+emission_points = PackedVector2Array()
+emission_normals = PackedVector3Array()
+emission_colors = PackedColorArray()
+gravity = Vector3(0, 0, 0)
+linear_accel = Vector3(0, 0, 0)
+radial_accel = 0.0
+tangential_accel = 0.0
+damping = 0.0
+angle = 0.0
+angle_rand = 6.283185
+scale_curve_enabled = true
+color_ramp_enabled = true
+animation_speed = 0.0
+animation_loop = false
+shader = SubResource("Shader_1")

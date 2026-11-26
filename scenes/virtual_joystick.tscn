@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="//uid://virtual_joystick_scene"]
+
+[ext_resource type="Script" path="res://scripts/virtual_joystick.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/globals.gd" id="2"]
+
+[sub_resource type="TextureRect" id="TextureRect_base"]
+anchors_preset = 0
+size = Vector2(140, 140)
+texture = Texture2D { width = 140, height = 140 }
+mouse_filter = 1
+
+[sub_resource type="TextureRect" id="TextureRect_stick"]
+anchors_preset = 0
+size = Vector2(70, 70)
+texture = Texture2D { width = 70, height = 70 }
+mouse_filter = 1
+
+[node name="VirtualJoystick" type="Control"]
+script = ExtResource("1")
+anchors_preset = 15
+size = Vector2(1280, 720)
+
+[node name="Base" parent="VirtualJoystick" type="TextureRect" instance=SubResource("TextureRect_base")]
+
+[node name="Stick" parent="VirtualJoystick" type="TextureRect" instance=SubResource("TextureRect_stick")]

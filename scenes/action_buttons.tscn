@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="//uid://action_buttons_scene"]
+
+[ext_resource type="Script" path="res://scripts/action_buttons.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/globals.gd" id="2"]
+
+[sub_resource type="TextureButton" id="TextureButton_jump"]
+anchors_preset = 9
+size = Vector2(80, 80)
+offset_right = -20
+offset_bottom = -120
+mouse_filter = 1
+text = "↑"
+
+[sub_resource type="TextureButton" id="TextureButton_break"]
+anchors_preset = 9
+size = Vector2(80, 80)
+offset_right = -120
+offset_bottom = -20
+mouse_filter = 1
+text = "⛏"
+
+[sub_resource type="TextureButton" id="TextureButton_place"]
+anchors_preset = 9
+size = Vector2(80, 80)
+offset_right = -220
+offset_bottom = -20
+mouse_filter = 1
+text = "🧱"
+
+[sub_resource type="TextureButton" id="TextureButton_inventory"]
+anchors_preset = 9
+size = Vector2(60, 60)
+offset_right = -20
+offset_bottom = -220
+mouse_filter = 1
+text = "🎒"
+
+[node name="ActionButtons" type="Control"]
+script = ExtResource("1")
+anchors_preset = 15
+size = Vector2(1280, 720)
+
+[node name="Jump" parent="ActionButtons" type="TextureButton" instance=SubResource("TextureButton_jump")]
+
+[node name="Break" parent="ActionButtons" type="TextureButton" instance=SubResource("TextureButton_break")]
+
+[node name="Place" parent="ActionButtons" type="TextureButton" instance=SubResource("TextureButton_place")]
+
+[node name="Inventory" parent="ActionButtons" type="TextureButton" instance=SubResource("TextureButton_inventory")]

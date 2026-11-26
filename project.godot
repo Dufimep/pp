@@ -1,0 +1,35 @@
+[application]
+name="Terraria Polish"
+run/main_scene="uid://world_main"
+config/features=PackedStringArray("mobile", "touchscreen")
+config/icon="res://icon.svg"
+
+[display]
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/resizable=true
+window/size/orientation="landscape"
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_width"
+window/vsync_mode=2
+
+[rendering]
+canvas_textures/default_texture_filter="nearest"
+rendering_2d/batching/use_batching=true
+rendering_2d/batching/max_join_item_commands=100
+rendering_2d/canvas_occlusion_culling=true
+rendering_2d/default_canvas_item_texture_filter="nearest"
+rendering/quality/filters/anisotropic_filter_level=0
+rendering/limits/rendering/max_renderable_elements=8192
+rendering/limits/rendering/max_renderable_lights=32
+
+[physics]
+common/physics_ticks_per_second=60
+
+[input]
+joypad/0/device_id="0"
+
+[autoload]
+Globals="*res://scripts/globals.gd"
+ParticlePool="*res://scripts/particle_pool.gd"
+SaveSystem="*res://scripts/save_system.gd"

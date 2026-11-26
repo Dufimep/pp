@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="//uid://world_main"]
+
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/background_parallax.tscn" id="3"]
+[ext_resource type="Script" path="res://scripts/world.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/globals.gd" id="5"]
+[ext_resource type="TileSet" path="res://assets/tileset.tres" id="6"]
+[ext_resource type="Shader" path="res://shaders/pixel_light.gdshader" id="7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1"]
+shader = ExtResource("7")
+
+[sub_resource type="World2D" id="World2D_1"]
+
+[sub_resource type="CanvasModulate" id="CanvasModulate_1"]
+modulate = Color(1, 1, 1, 1)
+
+[sub_resource type="ColorRect" id="ColorRect_1"]
+color = Color(0, 0, 0, 0.5)
+anchors_preset = 15
+
+[node name="World" type="Node2D"]
+script = ExtResource("4")
+
+[node name="BackgroundParallax" parent="." instance=ExtResource("3")]
+
+[node name="TileMap" parent="." type="TileMap"]
+tile_set = ExtResource("6")
+layer = 0
+format = 0
+
+[node name="LightCanvas" parent="." type="CanvasModulate" instance=SubResource("CanvasModulate_1")]
+
+[node name="FogCanvas" parent="." type="ColorRect" instance=SubResource("ColorRect_1")]
+material = SubResource("ShaderMaterial_1")
+
+[node name="Player" parent="." instance=ExtResource("1")]
+
+[node name="HUD" parent="." instance=ExtResource("2")]
+
+[node name="WorldEnvironment" parent="." type="WorldEnvironment"]
+environment = WorldEnvironment_1
+world_2d = SubResource("World2D_1")
