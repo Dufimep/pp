@@ -1,0 +1,280 @@
+[gd_resource type="TileSet" load_steps=2 format=3 uid="//uid://tileset_main"]
+
+[ext_resource type="Texture2D" path="res://assets/tile_atlas.png" id="1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dirt"]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grass"]
+atlas = ExtResource("1")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stone"]
+atlas = ExtResource("1")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wood"]
+atlas = ExtResource("1")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ore_copper"]
+atlas = ExtResource("1")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ore_iron"]
+atlas = ExtResource("1")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ore_gold"]
+atlas = ExtResource("1")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gem_amethyst"]
+atlas = ExtResource("1")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gem_topaz"]
+atlas = ExtResource("1")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sand"]
+atlas = ExtResource("1")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clay"]
+atlas = ExtResource("1")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mud"]
+atlas = ExtResource("1")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ash"]
+atlas = ExtResource("1")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obsidian"]
+atlas = ExtResource("1")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hellstone"]
+atlas = ExtResource("1")
+region = Rect2(80, 32, 16, 16)
+
+[resource]
+tile_size = Vector2i(16, 16)
+tile_map_shapes = []
+textures = { 0: ExtResource("1") }
+tile_data = {
+    0: {
+        name = "Dirt"
+        texture = 0
+        region = Rect2(0, 0, 16, 16)
+        physics_layer = 1
+        render_priority = 0
+        terrain_set = ""
+        terrain_sets = []
+        shape_one_way = false
+        shape_one_way_margin = 0.0
+        occlusion_enabled = true
+        navigation_polygon = NavigationPolygon { }
+        navigation_polygon_offset = Vector2(0, 0)
+    }
+    1: {
+        name = "Grass"
+        texture = 0
+        region = Rect2(16, 0, 16, 16)
+        physics_layer = 1
+        render_priority = 1
+        terrain_set = ""
+        terrain_sets = []
+        shape_one_way = false
+        shape_one_way_margin = 0.0
+        occlusion_enabled = true
+        navigation_polygon = NavigationPolygon { }
+        navigation_polygon_offset = Vector2(0, 0)
+    }
+    2: {
+        name = "Stone"
+        texture = 0
+        region = Rect2(32, 0, 16, 16)
+        physics_layer = 1
+        render_priority = 0
+        terrain_set = ""
+        terrain_sets = []
+        shape_one_way = false
+        shape_one_way_margin = 0.0
+        occlusion_enabled = true
+        navigation_polygon = NavigationPolygon { }
+        navigation_polygon_offset = Vector2(0, 0)
+    }
+    3: {
+        name = "Wood"
+        texture = 0
+        region = Rect2(48, 0, 16, 16)
+        physics_layer = 1
+        render_priority = 2
+        terrain_set = ""
+        terrain_sets = []
+        shape_one_way = false
+        shape_one_way_margin = 0.0
+        occlusion_enabled = true
+        navigation_polygon = NavigationPolygon { }
+        navigation_polygon_offset = Vector2(0, 0)
+    }
+    4: {
+        name = "Copper Ore"
+        texture = 0
+        region = Rect2(0, 16, 16, 16)
+        physics_layer = 1
+        render_priority = 0
+        terrain_set = ""
+        terrain_sets = []
+        shape_one_way = false
+        shape_one_way_margin = 0.0
+        occlusion_enabled = true
+        navigation_polygon = NavigationPolygon { }
+        navigation_polygon_offset = Vector2(0, 0)
+    }
+    5: {
+        name = "Iron Ore"
+        texture = 0
+        region = Rect2(16, 16, 16, 16)
+        physics_layer = 1
+        render_priority = 0
+        terrain_set = ""
+        terrain_sets = []
+        shape_one_way = false
+        shape_one_way_margin = 0.0
+        occlusion_enabled = true
+        navigation_polygon = NavigationPolygon { }
+        navigation_polygon_offset = Vector2(0, 0)
+    }
+    6: {
+        name = "Gold Ore"
+        texture = 0
+        region = Rect2(32, 16, 16, 16)
+        physics_layer = 1
+        render_priority = 0
+        terrain_set = ""
+        terrain_sets = []
+        shape_one_way = false
+        shape_one_way_margin = 0.0
+        occlusion_enabled = true
+        navigation_polygon = NavigationPolygon { }
+        navigation_polygon_offset = Vector2(0, 0)
+    }
+    7: {
+        name = "Amethyst"
+        texture = 0
+        region = Rect2(48, 16, 16, 16)
+        physics_layer = 1
+        render_priority = 0
+        terrain_set = ""
+        terrain_sets = []
+        shape_one_way = false
+        shape_one_way_margin = 0.0
+        occlusion_enabled = true
+        navigation_polygon = NavigationPolygon { }
+        navigation_polygon_offset = Vector2(0, 0)
+    }
+    8: {
+        name = "Topaz"
+        texture = 0
+        region = Rect2(64, 16, 16, 16)
+        physics_layer = 1
+        render_priority = 0
+        terrain_set = ""
+        terrain_sets = []
+        shape_one_way = false
+        shape_one_way_margin = 0.0
+        occlusion_enabled = true
+        navigation_polygon = NavigationPolygon { }
+        navigation_polygon_offset = Vector2(0, 0)
+    }
+    9: {
+        name = "Sand"
+        texture = 0
+        region = Rect2(0, 32, 16, 16)
+        physics_layer = 1
+        render_priority = 0
+        terrain_set = ""
+        terrain_sets = []
+        shape_one_way = false
+        shape_one_way_margin = 0.0
+        occlusion_enabled = true
+        navigation_polygon = NavigationPolygon { }
+        navigation_polygon_offset = Vector2(0, 0)
+    }
+    10: {
+        name = "Clay"
+        texture = 0
+        region = Rect2(16, 32, 16, 16)
+        physics_layer = 1
+        render_priority = 0
+        terrain_set = ""
+        terrain_sets = []
+        shape_one_way = false
+        shape_one_way_margin = 0.0
+        occlusion_enabled = true
+        navigation_polygon = NavigationPolygon { }
+        navigation_polygon_offset = Vector2(0, 0)
+    }
+    11: {
+        name = "Mud"
+        texture = 0
+        region = Rect2(32, 32, 16, 16)
+        physics_layer = 1
+        render_priority = 0
+        terrain_set = ""
+        terrain_sets = []
+        shape_one_way = false
+        shape_one_way_margin = 0.0
+        occlusion_enabled = true
+        navigation_polygon = NavigationPolygon { }
+        navigation_polygon_offset = Vector2(0, 0)
+    }
+    12: {
+        name = "Ash"
+        texture = 0
+        region = Rect2(48, 32, 16, 16)
+        physics_layer = 1
+        render_priority = 0
+        terrain_set = ""
+        terrain_sets = []
+        shape_one_way = false
+        shape_one_way_margin = 0.0
+        occlusion_enabled = true
+        navigation_polygon = NavigationPolygon { }
+        navigation_polygon_offset = Vector2(0, 0)
+    }
+    13: {
+        name = "Obsidian"
+        texture = 0
+        region = Rect2(64, 32, 16, 16)
+        physics_layer = 1
+        render_priority = 0
+        terrain_set = ""
+        terrain_sets = []
+        shape_one_way = false
+        shape_one_way_margin = 0.0
+        occlusion_enabled = true
+        navigation_polygon = NavigationPolygon { }
+        navigation_polygon_offset = Vector2(0, 0)
+    }
+    14: {
+        name = "Hellstone"
+        texture = 0
+        region = Rect2(80, 32, 16, 16)
+        physics_layer = 1
+        render_priority = 0
+        terrain_set = ""
+        terrain_sets = []
+        shape_one_way = false
+        shape_one_way_margin = 0.0
+        occlusion_enabled = true
+        navigation_polygon = NavigationPolygon { }
+        navigation_polygon_offset = Vector2(0, 0)
+    }
+}

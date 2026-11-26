@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="//uid://background_parallax_scene"]
+
+[ext_resource type="Script" path="res://scripts/background_parallax.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/globals.gd" id="2"]
+
+[sub_resource type="ColorRect" id="ColorRect_sky"]
+anchors_preset = 15
+size = Vector2(1280, 720)
+color = Color(0.4, 0.65, 0.95, 1)
+
+[sub_resource type="ParallaxBackground" id="ParallaxBackground_far"]
+anchors_preset = 15
+
+[sub_resource type="ParallaxBackground" id="ParallaxBackground_mid"]
+anchors_preset = 15
+
+[sub_resource type="ParallaxBackground" id="ParallaxBackground_clouds"]
+anchors_preset = 15
+
+[sub_resource type="Sprite2D" id="Sprite2D_sun_moon"]
+anchors_preset = 9
+size = Vector2(128, 128)
+offset_right = -100
+offset_top = 50
+centered = true
+
+[sub_resource type="GPUParticles2D" id="GPUParticles2D_stars"]
+anchors_preset = 15
+emitting = true
+amount = 200
+lifetime = 10.0
+one_shot = false
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 1.0
+fixed_fps = 0
+fract_delta = 0.0
+frame_rate = 0.0
+color_ramp = GradientRamp { colors = { 0: Color(1, 1, 1, 0), 0.1: Color(1, 1, 0.9, 0.8), 0.9: Color(1, 1, 0.9, 0.8), 1: Color(1, 1, 1, 0) } }
+scale = 0.5
+scale_curve = float_curve { points = { 0: 0.2, 0.5: 1.0, 1: 0.2 } }
+gravity = Vector3(0, 0, 0)
+linear_accel = Vector3(0, -5.0, 0)
+radial_accel = 0.0
+tangential_accel = 0.0
+damping = 0.0
+angle = 0.0
+angle_rand = 6.283185
+scale_curve_enabled = true
+color_ramp_enabled = true
+emission_shape = 7
+emission_rect_extents = Vector2(2000, 1000)
+
+[node name="BackgroundParallax" type="Node2D"]
+script = ExtResource("1")
+z_index = -100
+
+[node name="Sky" parent="BackgroundParallax" type="ColorRect" instance=SubResource("ColorRect_sky")]
+z_index = -100
+
+[node name="FarMountains" parent="BackgroundParallax" type="ParallaxBackground" instance=SubResource("ParallaxBackground_far")]
+z_index = -90
+
+[node name="MidMountains" parent="BackgroundParallax" type="ParallaxBackground" instance=SubResource("ParallaxBackground_mid")]
+z_index = -80
+
+[node name="Clouds" parent="BackgroundParallax" type="ParallaxBackground" instance=SubResource("ParallaxBackground_clouds")]
+z_index = -70
+
+[node name="SunMoon" parent="BackgroundParallax" type="Sprite2D" instance=SubResource("Sprite2D_sun_moon")]
+z_index = -60
+texture = Texture2D { width = 128, height = 128 }
+
+[node name="Stars" parent="BackgroundParallax" type="GPUParticles2D" instance=SubResource("GPUParticles2D_stars")]
+z_index = -50
