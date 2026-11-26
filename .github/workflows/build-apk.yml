@@ -14,16 +14,22 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
-      - name: Setup Godot 4.3
+
+      - name: Setup Godot 4.3.5
         uses: chickensoft-games/setup-godot@v2
         with:
-          version: "4.3"
-          export_templates: true
+          version: "4.3.5"
+          include-templates: true
           cache: true
+
+      - name: Verify Godot
+        run: godot --version
+
       - name: Build APK
-        working-directory: .
         run: |
+          mkdir -p build
           godot --headless --export-release "Android" build/terraria_polish.apk
+
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
