@@ -15,12 +15,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Godot 4.3.5-stable
+      - name: Setup Godot 4.3.5 (standard)
         uses: chickensoft-games/setup-godot@v2
         with:
-          version: "4.3.5-stable"
+          version: "4.3.5"
           include-templates: true
           cache: true
+          use-dotnet: false
 
       - name: Verify Godot
         run: godot --version
