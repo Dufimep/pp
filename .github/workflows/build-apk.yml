@@ -1,0 +1,32 @@
+name: Build Android APK
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Godot 4.3
+        uses: chickensoft-games/setup-godot@v2
+        with:
+          version: "4.3"
+          export_templates: true
+          cache: true
+      - name: Build APK
+        working-directory: .
+        run: |
+          godot --headless --export-release "Android" build/terraria_polish.apk
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: terraria-polish-apk
+          path: build/terraria_polish.apk
+          retention-days: 7
