@@ -18,12 +18,11 @@ jobs:
           export_templates: true
           cache: true
       - name: Build APK
-        working-directory: ./terraria_polish
         run: |
           godot --headless --export-release "Android" build/terraria_polish.apk
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: terraria-polish-apk
-          path: terraria_polish/build/terraria_polish.apk
+          path: build/terraria_polish.apk
           retention-days: 7
