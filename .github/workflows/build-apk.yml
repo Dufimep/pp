@@ -1,26 +1,50 @@
 name: Build Android APK
+
 on:
   push:
-    branches: [main]
+    branches: [ main, master ]
   workflow_dispatch:
+
 permissions:
   contents: read
+
 jobs:
-  build:
+  build-apk:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
+
+    # Pakai image Docker yang sudah berisi Godot + Android SDK
+    container:
+      image: ghcr.io/godotengine/godot:4.3   # atau gunakan image hasil Dockerfile Anda
+      # Jika menggunakan Dockerfile di repo:
+      # image: docker://ghcr.io/${{ github.repository_owner }}/godot-ci:latest
+      options: --user=root  # memberi hak akses penuh untuk meng‑install dependensi bila perlu
+
     steps:
-      - uses: actions/checkout@v4
-      - name: Setup Godot 4.3
-        uses: chickensoft-games/setup-godot@v2
-        with:
-          version: "4.3-stable"
-          include-templates: true
-          cache: true
-      - name: Build APK
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Java (dibutuhkan oleh Android SDK)
+        run: |
+          apt-get update -qq
+          apt-get install -y -qq openjdk-17-jdk-headless
+
+      # (Tidak perlu meng‑download Godot – sudah ada di container)
+
+      - name: Verify Godot version & export templates
+        run: |
+          godot --version
+          # Pastikan template Android ada (sudah di‑install di image)
+          ls -R "$HOME/.local/share/godot/export_templates/4.3.stable" || true
+
+      - name: Build the APK
+        # `--no-window` menghindari kebutuhan tampilan GUI.
+        # `--headless` men‑skip error‑checking pada script‑syntax (hanya warning).
+        # Pastikan Anda berada di folder project (root repo)
         run: |
           mkdir -p build
-          godot --headless --export-release "Android" build/terraria_polish.apk
+          godot --headless --no-window --export-release "Android" build/terraria_polish.apk
+
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
